@@ -1,4 +1,4 @@
-package com.lizehao.watermelondiarynew.widget;
+package com.example.losya.watermelondiarynew.widget;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -11,7 +11,6 @@ import android.util.AttributeSet;
 import android.widget.EditText;
 
 /**
- * Created by 李 on 2017/1/26.
  */
 @SuppressLint({ "ResourceAsColor", "DrawAllocation" })
 

@@ -34,7 +34,7 @@
             android:gravity="center_vertical"
             android:paddingLeft="4dp"
             android:paddingTop="1dp"
-            android:text="2017年01月18日"
+            android:text="tesdate"
             android:textSize="14sp"
             />
 
@@ -79,7 +79,7 @@
                     android:layout_height="32dp"
                     android:gravity="center_vertical"
                     android:paddingLeft="16dp"
-                    android:text="哈哈哈今天傻逼了"
+                    android:text="flkjdsa lkflds jfa"
                     android:textColor="@color/black"
                     android:textSize="19sp"
                     />
@@ -95,7 +95,7 @@
                 android:lineSpacingExtra="4dp"
                 android:paddingLeft="33dp"
                 android:paddingRight="15dp"
-                android:text="         在这里写些什么在这里写些什么在这里写些什么在这里写些什么在这里写些什么在这里写些什么在这里写些什么在这里写些什么在这里写些什么在这里 写些什么在这里写些什么在这里写些什么在这里写些什么在这里写些什么在这里写些什么在这里写些什么"
+                android:text="kfdslfj adslkjf lkdsja flk dsjf dsl jflds jalf jdslfj lds jflkdsj lkaj s"
                 android:textColor="#1d1c1c"
                 android:textSize="16sp"
 

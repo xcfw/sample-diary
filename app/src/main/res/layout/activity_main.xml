@@ -63,7 +63,7 @@
                     android:gravity="center_vertical"
                     android:paddingLeft="4dp"
                     android:paddingTop="5dp"
-                    android:text="2017年01月18日"
+                    android:text="testdate"
                     android:textSize="14sp"
                     />
 
@@ -99,7 +99,7 @@
                         android:paddingLeft="33dp"
                         android:paddingRight="15dp"
                         android:paddingTop="5dp"
-                        android:text="今天，你什么都没写下..."
+                        android:text="Today, you didn't write anything..."
                         android:textColor="@color/gray"
                         android:textSize="16sp"
                         />
@@ -138,5 +138,10 @@
         app:layout_anchorGravity="bottom|right"
         app:pressedTranslationZ="12dp"
         app:rippleColor="#a6a6a6"/>
+    <ImageView
+            android:src="@drawable/watermelon1"
+            android:layout_width="126dp"
+            android:layout_height="70dp" android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true" android:id="@+id/imageView"/>
 
 </RelativeLayout>

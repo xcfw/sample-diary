@@ -1,10 +1,9 @@
-package com.lizehao.watermelondiarynew.utils;
+package com.example.losya.watermelondiarynew.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
 /**
- * Created by 李 on 2017/1/26.
  */
 public class SpHelper {
 
@@ -49,4 +48,3 @@ public class SpHelper {
         return info;
     }
 }
-

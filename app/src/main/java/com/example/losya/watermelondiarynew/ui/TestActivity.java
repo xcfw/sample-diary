@@ -1,4 +1,4 @@
-package com.lizehao.watermelondiarynew.ui;
+package com.example.losya.watermelondiarynew.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,14 +7,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.lizehao.watermelondiarynew.R;
+import com.example.losya.watermelondiarynew.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * Created by developerHaoz on 2017/5/11.
  */
 
 public class TestActivity extends AppCompatActivity {

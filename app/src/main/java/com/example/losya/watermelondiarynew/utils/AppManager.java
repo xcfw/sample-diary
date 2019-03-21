@@ -1,4 +1,4 @@
-package com.lizehao.watermelondiarynew.utils;
+package com.example.losya.watermelondiarynew.utils;
 
 import android.app.ActivityManager;
 import android.content.Context;
@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import java.util.Stack;
 
 /**
- * Created by Haoz on 2017/3/12 0012.
  */
 
 public class AppManager {
@@ -35,7 +34,7 @@ public class AppManager {
     }
 
     /**
-     * 获得当前Activity(栈顶Activity)
+     * Activity(栈顶Activity)
      * 
      * @return
      */

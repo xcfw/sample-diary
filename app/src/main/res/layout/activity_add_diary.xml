@@ -31,7 +31,7 @@
                 android:layout_height="30dp"
                 android:gravity="center_vertical"
                 android:paddingRight="5dp"
-                android:text="今天，2017年01月19日"
+                android:text="testdate"
                 android:textSize="15sp"
                 />
 
@@ -53,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="20dp"/>
 
-            <com.lizehao.watermelondiarynew.widget.LinedEditText
+            <com.example.losya.watermelondiarynew.widget.LinedEditText
                 android:id="@+id/add_diary_et_content"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"

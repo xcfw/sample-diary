@@ -1,4 +1,4 @@
-package com.lizehao.watermelondiarynew.db;
+package com.example.losya.watermelondiarynew.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

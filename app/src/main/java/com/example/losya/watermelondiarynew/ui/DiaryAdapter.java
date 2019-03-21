@@ -1,4 +1,4 @@
-package com.lizehao.watermelondiarynew.ui;
+package com.example.losya.watermelondiarynew.ui;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -10,17 +10,16 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.lizehao.watermelondiarynew.R;
-import com.lizehao.watermelondiarynew.bean.DiaryBean;
-import com.lizehao.watermelondiarynew.event.StartUpdateDiaryEvent;
-import com.lizehao.watermelondiarynew.utils.GetDate;
+import com.example.losya.watermelondiarynew.R;
+import com.example.losya.watermelondiarynew.bean.DiaryBean;
+import com.example.losya.watermelondiarynew.event.StartUpdateDiaryEvent;
+import com.example.losya.watermelondiarynew.utils.GetDate;
 
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
 /**
- * Created by 李 on 2017/1/26.
  */
 public class DiaryAdapter extends RecyclerView.Adapter<DiaryAdapter.DiaryViewHolder> {
 

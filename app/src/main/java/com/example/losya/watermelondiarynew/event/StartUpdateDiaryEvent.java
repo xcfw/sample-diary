@@ -1,4 +1,4 @@
-package com.lizehao.watermelondiarynew.event;
+package com.example.losya.watermelondiarynew.event;
 
 /**
  * Created by 李 on 2017/1/26.

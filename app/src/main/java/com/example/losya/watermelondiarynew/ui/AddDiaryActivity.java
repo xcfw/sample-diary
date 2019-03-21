@@ -1,4 +1,4 @@
-package com.lizehao.watermelondiarynew.ui;
+package com.example.losya.watermelondiarynew.ui;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -17,12 +17,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.lizehao.watermelondiarynew.R;
-import com.lizehao.watermelondiarynew.db.DiaryDatabaseHelper;
-import com.lizehao.watermelondiarynew.utils.AppManager;
-import com.lizehao.watermelondiarynew.utils.GetDate;
-import com.lizehao.watermelondiarynew.utils.StatusBarCompat;
-import com.lizehao.watermelondiarynew.widget.LinedEditText;
+import com.example.losya.watermelondiarynew.R;
+import com.example.losya.watermelondiarynew.db.DiaryDatabaseHelper;
+import com.example.losya.watermelondiarynew.utils.AppManager;
+import com.example.losya.watermelondiarynew.utils.GetDate;
+import com.example.losya.watermelondiarynew.utils.StatusBarCompat;
+import com.example.losya.watermelondiarynew.widget.LinedEditText;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -31,7 +31,6 @@ import cc.trity.floatingactionbutton.FloatingActionButton;
 import cc.trity.floatingactionbutton.FloatingActionsMenu;
 
 /**
- * Created by 李 on 2017/1/26.
  */
 public class AddDiaryActivity extends AppCompatActivity {
 
@@ -83,8 +82,8 @@ public class AddDiaryActivity extends AppCompatActivity {
         mAddDiaryEtTitle.setText(intent.getStringExtra("title"));
         StatusBarCompat.compat(this, Color.parseColor("#161414"));
 
-        mCommonTvTitle.setText("添加日记");
-        mAddDiaryTvDate.setText("今天，" + GetDate.getDate());
+        mCommonTvTitle.setText("Add note");
+        mAddDiaryTvDate.setText("Today " + GetDate.getDate());
         mAddDiaryEtContent.setText(intent.getStringExtra("content"));
         mHelper = new DiaryDatabaseHelper(this, "Diary.db", null, 1);
     }
@@ -122,7 +121,7 @@ public class AddDiaryActivity extends AppCompatActivity {
                 final String contentBack = mAddDiaryEtContent.getText().toString();
                 if(!titleBack.isEmpty() || !contentBack.isEmpty()){
                     AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-                    alertDialogBuilder.setMessage("是否保存日记内容？").setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    alertDialogBuilder.setMessage("Do you want to save?").setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             SQLiteDatabase db = mHelper.getWritableDatabase();
                             ContentValues values = new ContentValues();
@@ -133,7 +132,7 @@ public class AddDiaryActivity extends AppCompatActivity {
                             values.clear();
                             MainActivity.startActivity(AddDiaryActivity.this);
                         }
-                    }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    }).setNegativeButton("No", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             MainActivity.startActivity(AddDiaryActivity.this);
                         }

@@ -1,4 +1,4 @@
-package com.lizehao.watermelondiarynew;
+package com.example.losya.watermelondiarynew;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

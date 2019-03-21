@@ -1,4 +1,4 @@
-package com.lizehao.watermelondiarynew.utils;
+package com.example.losya.watermelondiarynew.utils;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -9,9 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * 用于修改标题栏的颜色
  *
- * Created by 李 on 2017/1/26.
  */
 public class StatusBarCompat
 {
@@ -40,7 +38,7 @@ public class StatusBarCompat
                 color = statusColor;
             }
             View statusBarView = contentView.getChildAt(0);
-            //改变颜色时避免重复添加statusBarView
+            //Avoid adding repeatedly statusBarView
             if (statusBarView != null && statusBarView.getMeasuredHeight() == getStatusBarHeight(activity))
             {
                 statusBarView.setBackgroundColor(color);

@@ -34,7 +34,7 @@
             android:gravity="center_vertical"
             android:paddingLeft="4dp"
             android:paddingTop="1dp"
-            android:text="2017年01月18日"
+            android:text="testdate"
             android:textSize="14sp"
             />
 
@@ -69,7 +69,7 @@
                 android:lineSpacingExtra="4dp"
                 android:paddingLeft="33dp"
                 android:paddingRight="15dp"
-                android:text="今天，你什么都没写下..."
+                android:text="fkdsjflakdsj flkfd jsalf..."
                 android:textColor="@color/gray"
                 android:textSize="16sp"
                 />

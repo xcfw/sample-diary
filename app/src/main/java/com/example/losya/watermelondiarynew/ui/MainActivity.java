@@ -1,4 +1,4 @@
-package com.lizehao.watermelondiarynew.ui;
+package com.example.losya.watermelondiarynew.ui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,14 +17,14 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.lizehao.watermelondiarynew.R;
-import com.lizehao.watermelondiarynew.bean.DiaryBean;
-import com.lizehao.watermelondiarynew.db.DiaryDatabaseHelper;
-import com.lizehao.watermelondiarynew.event.StartUpdateDiaryEvent;
-import com.lizehao.watermelondiarynew.utils.AppManager;
-import com.lizehao.watermelondiarynew.utils.GetDate;
-import com.lizehao.watermelondiarynew.utils.SpHelper;
-import com.lizehao.watermelondiarynew.utils.StatusBarCompat;
+import com.example.losya.watermelondiarynew.R;
+import com.example.losya.watermelondiarynew.bean.DiaryBean;
+import com.example.losya.watermelondiarynew.db.DiaryDatabaseHelper;
+import com.example.losya.watermelondiarynew.event.StartUpdateDiaryEvent;
+import com.example.losya.watermelondiarynew.utils.AppManager;
+import com.example.losya.watermelondiarynew.utils.GetDate;
+import com.example.losya.watermelondiarynew.utils.SpHelper;
+import com.example.losya.watermelondiarynew.utils.StatusBarCompat;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -74,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
     private int mEditPosition = -1;
 
     /**
-     * 标识今天是否已经写了日记
      */
     private boolean isWrite = false;
     private static TextView mTvTest;
@@ -105,8 +104,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initTitle() {
-        mMainTvDate.setText("今天，" + GetDate.getDate());
-        mCommonTvTitle.setText("日记");
+        mMainTvDate.setText("Today " + GetDate.getDate());
+        mCommonTvTitle.setText("Diary");
         mCommonIvBack.setVisibility(View.INVISIBLE);
         mCommonIvTest.setVisibility(View.INVISIBLE);
 

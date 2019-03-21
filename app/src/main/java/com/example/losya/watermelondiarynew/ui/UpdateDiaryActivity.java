@@ -1,4 +1,4 @@
-package com.lizehao.watermelondiarynew.ui;
+package com.example.losya.watermelondiarynew.ui;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -16,12 +16,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.lizehao.watermelondiarynew.R;
-import com.lizehao.watermelondiarynew.db.DiaryDatabaseHelper;
-import com.lizehao.watermelondiarynew.utils.AppManager;
-import com.lizehao.watermelondiarynew.utils.GetDate;
-import com.lizehao.watermelondiarynew.utils.StatusBarCompat;
-import com.lizehao.watermelondiarynew.widget.LinedEditText;
+import com.example.losya.watermelondiarynew.R;
+import com.example.losya.watermelondiarynew.db.DiaryDatabaseHelper;
+import com.example.losya.watermelondiarynew.utils.AppManager;
+import com.example.losya.watermelondiarynew.utils.GetDate;
+import com.example.losya.watermelondiarynew.utils.StatusBarCompat;
+import com.example.losya.watermelondiarynew.widget.LinedEditText;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -30,7 +30,6 @@ import cc.trity.floatingactionbutton.FloatingActionButton;
 import cc.trity.floatingactionbutton.FloatingActionsMenu;
 
 /**
- * Created by 李 on 2017/1/26.
  */
 public class UpdateDiaryActivity extends AppCompatActivity {
 
@@ -80,7 +79,7 @@ public class UpdateDiaryActivity extends AppCompatActivity {
         StatusBarCompat.compat(this, Color.parseColor("#161414"));
 
         Intent intent = getIntent();
-        mUpdateDiaryTvDate.setText("今天，" + GetDate.getDate());
+        mUpdateDiaryTvDate.setText("Today " + GetDate.getDate());
         mUpdateDiaryEtTitle.setText(intent.getStringExtra("title"));
         mUpdateDiaryEtContent.setText(intent.getStringExtra("content"));
         mTvTag.setText(intent.getStringExtra("tag"));
@@ -92,7 +91,7 @@ public class UpdateDiaryActivity extends AppCompatActivity {
     private void initTitle() {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-        mCommonTvTitle.setText("修改日记");
+        mCommonTvTitle.setText("Edit note");
     }
 
     @OnClick({R.id.common_iv_back, R.id.update_diary_tv_date, R.id.update_diary_et_title, R.id.update_diary_et_content, R.id.update_diary_fab_back, R.id.update_diary_fab_add, R.id.update_diary_fab_delete})
@@ -108,7 +107,7 @@ public class UpdateDiaryActivity extends AppCompatActivity {
                 break;
             case R.id.update_diary_fab_back:
                 android.support.v7.app.AlertDialog.Builder alertDialogBuilder = new android.support.v7.app.AlertDialog.Builder(this);
-                alertDialogBuilder.setMessage("确定要删除该日记吗？").setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                alertDialogBuilder.setMessage("Are you sure to delete this note?").setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
 
 //                        String title = mUpdateDiaryEtTitle.getText().toString();
@@ -117,7 +116,7 @@ public class UpdateDiaryActivity extends AppCompatActivity {
                         dbDelete.delete("Diary", "tag = ?", new String[]{tag});
                         MainActivity.startActivity(UpdateDiaryActivity.this);
                     }
-                }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                }).setNegativeButton("No", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                     }
                 }).show();
