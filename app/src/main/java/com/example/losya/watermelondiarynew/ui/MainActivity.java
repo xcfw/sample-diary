@@ -1,22 +1,26 @@
 package com.example.losya.watermelondiarynew.ui;
 
-import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import com.example.losya.watermelondiarynew.R;
 import com.example.losya.watermelondiarynew.bean.DiaryBean;
 import com.example.losya.watermelondiarynew.db.DiaryDatabaseHelper;
@@ -25,16 +29,11 @@ import com.example.losya.watermelondiarynew.utils.AppManager;
 import com.example.losya.watermelondiarynew.utils.GetDate;
 import com.example.losya.watermelondiarynew.utils.SpHelper;
 import com.example.losya.watermelondiarynew.utils.StatusBarCompat;
-
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -65,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout mItemFirst;
     @Bind(R.id.main_ll_main)
     LinearLayout mMainLlMain;
+
     private List<DiaryBean> mDiaryBeanList;
 
     private DiaryDatabaseHelper mHelper;
@@ -78,9 +78,12 @@ public class MainActivity extends AppCompatActivity {
     private boolean isWrite = false;
     private static TextView mTvTest;
 
-    public static void startActivity(Context context) {
-        Intent intent = new Intent(context, MainActivity.class);
-        context.startActivity(intent);
+    private DrawerLayout drawerLayout;
+
+    public static void startActivity(UpdateDiaryActivity updateDiaryActivity) {
+    }
+
+    public static void startActivity(AddDiaryActivity addDiaryActivity) {
     }
 
     @Override
@@ -101,6 +104,26 @@ public class MainActivity extends AppCompatActivity {
         mMainRvShowDiary.setAdapter(new DiaryAdapter(this, mDiaryBeanList));
         mTvTest = new TextView(this);
         mTvTest.setText("hello world");
+
+        drawerLayout = findViewById(R.id.drawer_layout);
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+                        // set item as selected to persist highlight
+                        menuItem.setChecked(true);
+                        // close drawer when item is tapped
+                        drawerLayout.closeDrawers();
+
+                        // Add code here to update the UI based on the item selected
+                        // For example, swap UI fragments here
+
+                        return true;
+                    }
+                });
+
     }
 
     private void initTitle() {
@@ -110,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
         mCommonIvTest.setVisibility(View.INVISIBLE);
 
     }
+
 
     private List<DiaryBean> getDiaryBeanList() {
 
@@ -167,6 +191,16 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.main_fab_enter_edit)
     public void onClick() {
         AddDiaryActivity.startActivity(this);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                drawerLayout.openDrawer(GravityCompat.START);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

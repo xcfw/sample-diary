@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">WatermelonDiaryNew</string>
+    <string name="gallery">gallery</string>
+    <string name="slideshow">slideshow</string>
+    <string name="tools">tools</string>
+    <string name="limport">limport</string>
 </resources>
