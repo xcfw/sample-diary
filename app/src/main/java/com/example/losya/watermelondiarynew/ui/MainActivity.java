@@ -1,17 +1,24 @@
 package com.example.losya.watermelondiarynew.ui;
 
 import android.content.Context;
+
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+
+
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -51,14 +58,18 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.main_tv_date)
     TextView mMainTvDate;
     @Bind(R.id.main_tv_content)
-    TextView mMainTvContent;
+    TextView mMContentainTv;
     @Bind(R.id.item_ll_control)
     LinearLayout mItemLlControl;
+    @Bind(R.id.numberPadLayout)
+    LinearLayout lay;
 
     @Bind(R.id.main_rv_show_diary)
     RecyclerView mMainRvShowDiary;
     @Bind(R.id.main_fab_enter_edit)
     FloatingActionButton mMainFabEnterEdit;
+    @Bind(R.id.main_fab_set_edit)
+    FloatingActionButton mMainFabSetEdit;
     @Bind(R.id.main_rl_main)
     RelativeLayout mMainRlMain;
     @Bind(R.id.item_first)
@@ -73,20 +84,34 @@ public class MainActivity extends AppCompatActivity {
 
     private int mEditPosition = -1;
 
-    /**
-     */
     private boolean isWrite = false;
     private static TextView mTvTest;
 
     public static void startActivity(Context context) {
         Intent intent = new Intent(context, MainActivity.class);
         context.startActivity(intent);
+
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
+
+        SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        boolean themeType = (boolean) SP.getBoolean("btheme", Boolean.parseBoolean("false"));
+        RelativeLayout view = (RelativeLayout) findViewById(R.id.main_rl_main);
+//        RelativeLayout bbtheme = new RelativeLayout(this);
+
+        if (themeType) {
+            view.setBackgroundColor(Color.parseColor("#000000"));
+        }
+        else {
+
+            view.setBackgroundColor(Color.parseColor("#FFFFFF"));
+        }
+
         AppManager.getAppManager().addActivity(this);
         ButterKnife.bind(this);
         StatusBarCompat.compat(this, Color.parseColor("#161414"));
@@ -96,16 +121,53 @@ public class MainActivity extends AppCompatActivity {
         EventBus.getDefault().register(this);
         SpHelper spHelper = SpHelper.getInstance(this);
         getDiaryBeanList();
+
         initTitle();
         mMainRvShowDiary.setLayoutManager(new LinearLayoutManager(this));
         mMainRvShowDiary.setAdapter(new DiaryAdapter(this, mDiaryBeanList));
         mTvTest = new TextView(this);
         mTvTest.setText("hello world");
-    }
+        mMainFabSetEdit.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i;
+                i =  new Intent(getApplicationContext(),MyPreferencesActivity.class);
+                startActivity(i);
+            }
+        });
 
+    }
     private void initTitle() {
+
+        SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        String strUserName = SP.getString("username", "User");
+        String downloadType = SP.getString("downloadType","1");
+
+        switch (downloadType){
+            case "1":
+                mCommonTvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,18);
+                mMainTvDate.setTextSize(TypedValue.COMPLEX_UNIT_SP,14);
+                mMContentainTv.setTextSize(TypedValue.COMPLEX_UNIT_SP,16);
+
+                break;
+            case "2":
+                mCommonTvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,23);
+                mMainTvDate.setTextSize(TypedValue.COMPLEX_UNIT_SP,20);
+                mMContentainTv.setTextSize(TypedValue.COMPLEX_UNIT_SP,22);
+
+            break;
+            case "3":
+                mCommonTvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,30);
+                mMainTvDate.setTextSize(TypedValue.COMPLEX_UNIT_SP,26);
+                mMContentainTv.setTextSize(TypedValue.COMPLEX_UNIT_SP,28);
+
+            break;
+            default:
+                mCommonTvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,18);
+                mMainTvDate.setTextSize(TypedValue.COMPLEX_UNIT_SP,14);
+                mMContentainTv.setTextSize(TypedValue.COMPLEX_UNIT_SP,16);
+        }
         mMainTvDate.setText("Today " + GetDate.getDate());
-        mCommonTvTitle.setText("Diary");
+        mCommonTvTitle.setText(strUserName+"\'s "+"Diary");
         mCommonIvBack.setVisibility(View.INVISIBLE);
         mCommonIvTest.setVisibility(View.INVISIBLE);
 
@@ -168,6 +230,10 @@ public class MainActivity extends AppCompatActivity {
     public void onClick() {
         AddDiaryActivity.startActivity(this);
     }
+
+//    @OnClick(R.id.main_fab_set_edit)
+//    public void onClick() { MyPreferencesActivity.startActivity(this);}
+
 
     @Override
     public void onBackPressed() {

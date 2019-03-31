@@ -4,9 +4,6 @@ import android.app.Application;
 
 import com.squareup.leakcanary.LeakCanary;
 
-/**
- */
-
 public class DiaryApplication extends Application {
 
     @Override

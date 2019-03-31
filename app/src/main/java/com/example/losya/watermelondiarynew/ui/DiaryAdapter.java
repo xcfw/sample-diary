@@ -1,7 +1,10 @@
 package com.example.losya.watermelondiarynew.ui;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +26,7 @@ import java.util.List;
  */
 public class DiaryAdapter extends RecyclerView.Adapter<DiaryAdapter.DiaryViewHolder> {
 
+
     private Context mContext;
     private LayoutInflater mLayoutInflater;
     private List<DiaryBean> mDiaryBeanList;
@@ -40,6 +44,34 @@ public class DiaryAdapter extends RecyclerView.Adapter<DiaryAdapter.DiaryViewHol
 
     @Override
     public void onBindViewHolder(final DiaryViewHolder holder, final int position) {
+
+//        SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+//        String downloadType = SP.getString("downloadType","1");
+//
+//        switch (downloadType){
+//            case "1":
+//                holder.mTvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,19);
+//                holder.mTvDate.setTextSize(TypedValue.COMPLEX_UNIT_SP,14);
+//                holder.mTvContent.setTextSize(TypedValue.COMPLEX_UNIT_SP,16);
+//
+//                break;
+//            case "2":
+//                holder.mTvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,24);
+//                holder.mTvDate.setTextSize(TypedValue.COMPLEX_UNIT_SP,20);
+//                holder.mTvContent.setTextSize(TypedValue.COMPLEX_UNIT_SP,22);
+//
+//                break;
+//            case "3":
+//                holder.mTvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,31);
+//                holder.mTvDate.setTextSize(TypedValue.COMPLEX_UNIT_SP,26);
+//                holder.mTvContent.setTextSize(TypedValue.COMPLEX_UNIT_SP,28);
+//
+//                break;
+//            default:
+//                holder.mTvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,19);
+//                holder.mTvDate.setTextSize(TypedValue.COMPLEX_UNIT_SP,14);
+//                holder.mTvContent.setTextSize(TypedValue.COMPLEX_UNIT_SP,16);
+//        }
 
         String dateSystem = GetDate.getDate().toString();
         if(mDiaryBeanList.get(position).getDate().equals(dateSystem)){
@@ -105,6 +137,7 @@ public class DiaryAdapter extends RecyclerView.Adapter<DiaryAdapter.DiaryViewHol
             mLl = (LinearLayout) view.findViewById(R.id.item_ll);
             mLlControl = (LinearLayout) view.findViewById(R.id.item_ll_control);
             mRlEdit = (RelativeLayout) view.findViewById(R.id.item_rl_edit);
+
         }
     }
 }

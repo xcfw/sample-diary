@@ -13,8 +13,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-/**
- */
 
 public class TestActivity extends AppCompatActivity {
 

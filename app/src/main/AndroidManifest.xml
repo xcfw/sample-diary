@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.UpdateDiaryActivity"/>
+        <activity android:name=".ui.MyPreferencesActivity"/>
         <activity android:name=".ui.AddDiaryActivity"/>
         <activity android:name=".ui.TestActivity">
         </activity>

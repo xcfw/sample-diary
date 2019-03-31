@@ -2,8 +2,7 @@ package com.example.losya.watermelondiarynew.utils;
 
 import java.util.Calendar;
 
-/**
- */
+
 public class GetDate {
 
     public static StringBuilder getDate(){

@@ -1,16 +1,15 @@
 package com.example.losya.watermelondiarynew.ui;
 
-import android.content.ContentValues;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
+import android.content.*;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -79,6 +78,30 @@ public class AddDiaryActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
         Intent intent = getIntent();
+        SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        String downloadType = SP.getString("downloadType","1");
+        switch (downloadType) {
+            case "1":
+                mCommonTvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+                mAddDiaryTvDate.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
+                mAddDiaryEtContent.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+
+                break;
+            case "2":
+                mCommonTvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,23);
+                mAddDiaryTvDate.setTextSize(TypedValue.COMPLEX_UNIT_SP,19);
+                mAddDiaryEtContent.setTextSize(TypedValue.COMPLEX_UNIT_SP,22);
+                break;
+            case "3":
+                mCommonTvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,30);
+                mAddDiaryTvDate.setTextSize(TypedValue.COMPLEX_UNIT_SP,26);
+                mAddDiaryEtContent.setTextSize(TypedValue.COMPLEX_UNIT_SP,28);
+                break;
+            default:
+                mCommonTvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,18);
+                mAddDiaryTvDate.setTextSize(TypedValue.COMPLEX_UNIT_SP,14);
+                mAddDiaryEtContent.setTextSize(TypedValue.COMPLEX_UNIT_SP,16);
+        }
         mAddDiaryEtTitle.setText(intent.getStringExtra("title"));
         StatusBarCompat.compat(this, Color.parseColor("#161414"));
 

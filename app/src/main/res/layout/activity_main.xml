@@ -38,9 +38,9 @@
             >
 
 
-            <LinearLayout
+            <LinearLayout android:id="@+id/numberPadLayout"
                 android:layout_width="match_parent"
-                android:layout_height="25dp"
+                android:layout_height="wrap_content"
                 android:background="#ffffff"
                 android:orientation="horizontal"
                 android:paddingLeft="10.8dp"
@@ -58,7 +58,7 @@
                 <TextView
                     android:id="@+id/main_tv_date"
                     android:layout_width="0dp"
-                    android:layout_height="25dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:paddingLeft="4dp"
@@ -78,7 +78,7 @@
 
                 <LinearLayout
                     android:layout_width="23dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/linear_style"
                     >
                 </LinearLayout>
@@ -93,7 +93,7 @@
                     <TextView
                         android:id="@+id/main_tv_content"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
                         android:background="#ffffff"
                         android:lineSpacingExtra="4dp"
                         android:paddingLeft="33dp"
@@ -138,6 +138,24 @@
         app:layout_anchorGravity="bottom|right"
         app:pressedTranslationZ="12dp"
         app:rippleColor="#a6a6a6"/>
+    <android.support.design.widget.FloatingActionButton
+            android:id="@+id/main_fab_set_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="36dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginStart="100dp"
+            android:src="@drawable/set"
+            app:backgroundTint="#ee722f"
+            app:borderWidth="0dp"
+            app:elevation="6dp"
+            app:fabSize="normal"
+            app:layout_anchorGravity="bottom|right"
+            app:pressedTranslationZ="12dp"
+            app:rippleColor="#a6a6a6"/>
     <ImageView
             android:src="@drawable/watermelon1"
             android:layout_width="126dp"

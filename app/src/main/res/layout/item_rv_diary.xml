@@ -30,12 +30,13 @@
             android:id="@+id/main_tv_date"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:paddingLeft="4dp"
             android:paddingTop="1dp"
             android:text="tesdate"
             android:textSize="14sp"
+            android:bottom="20dp"
             />
 
     </LinearLayout>
