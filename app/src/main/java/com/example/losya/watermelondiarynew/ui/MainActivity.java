@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
 //        RelativeLayout bbtheme = new RelativeLayout(this);
 
         if (themeType) {
-            view.setBackgroundColor(Color.parseColor("#000000"));
+            view.setBackgroundColor(Color.parseColor("#223344"));
         }
         else {
 
