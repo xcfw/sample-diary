@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_sample-diary" default="compile.module.sample-diary">
+  <dirname property="module.sample-diary.basedir" file="${ant.file.module_sample-diary}"/>
+  
+  <property name="module.jdk.home.sample-diary" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.sample-diary" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.sample-diary" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.sample-diary" value="-encoding UTF-8 -source 7 -target 7 ${compiler.args}"/>
+  
+  <property name="sample-diary.output.dir" value="${module.sample-diary.basedir}/../../out/production/sample-diary"/>
+  <property name="sample-diary.testoutput.dir" value="${module.sample-diary.basedir}/../../out/test/sample-diary"/>
+  
+  <path id="sample-diary.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="sample-diary.module.production.classpath">
+    <path refid="${module.jdk.classpath.sample-diary}"/>
+  </path>
+  
+  <path id="sample-diary.runtime.production.module.classpath">
+    <pathelement location="${sample-diary.output.dir}"/>
+  </path>
+  
+  <path id="sample-diary.module.classpath">
+    <path refid="${module.jdk.classpath.sample-diary}"/>
+    <pathelement location="${sample-diary.output.dir}"/>
+  </path>
+  
+  <path id="sample-diary.runtime.module.classpath">
+    <pathelement location="${sample-diary.testoutput.dir}"/>
+    <pathelement location="${sample-diary.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.sample-diary">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.sample-diary">
+    <patternset refid="excluded.from.module.sample-diary"/>
+  </patternset>
+  
+  
+  <target name="compile.module.sample-diary" depends="compile.module.sample-diary.production,compile.module.sample-diary.tests" description="Compile module sample-diary"/>
+  
+  <target name="compile.module.sample-diary.production" depends="register.custom.compilers" description="Compile module sample-diary; production classes"/>
+  
+  <target name="compile.module.sample-diary.tests" depends="register.custom.compilers,compile.module.sample-diary.production" description="compile module sample-diary; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.sample-diary" description="cleanup module">
+    <delete dir="${sample-diary.output.dir}"/>
+    <delete dir="${sample-diary.testoutput.dir}"/>
+  </target>
+</project>

@@ -102,14 +102,27 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         boolean themeType = (boolean) SP.getBoolean("btheme", Boolean.parseBoolean("false"));
         RelativeLayout view = (RelativeLayout) findViewById(R.id.main_rl_main);
-//        RelativeLayout bbtheme = new RelativeLayout(this);
+        TextView view2 = (TextView) findViewById(R.id.main_tv_content);
 
+        LinearLayout view3 = (LinearLayout) findViewById(R.id.numberPadLayout);
+        LinearLayout view4 = (LinearLayout) findViewById(R.id.item_first);
+        LinearLayout view5 = (LinearLayout) findViewById(R.id.main_ll_main);
+        LinearLayout view6 = (LinearLayout) findViewById(R.id.itemLine);
         if (themeType) {
             view.setBackgroundColor(Color.parseColor("#223344"));
+            view2.setBackgroundColor(Color.parseColor("#223344"));
+            view3.setBackgroundColor(Color.parseColor("#223344"));
+            view4.setBackgroundColor(Color.parseColor("#223344"));
+            view5.setBackgroundColor(Color.parseColor("#223344"));
+            view6.setBackgroundResource(R.drawable.ready);
         }
         else {
-
+            view2.setBackgroundColor(Color.parseColor("#FFFFFF"));
             view.setBackgroundColor(Color.parseColor("#FFFFFF"));
+            view3.setBackgroundColor(Color.parseColor("#FFFFFF"));
+            view4.setBackgroundColor(Color.parseColor("#FFFFFF"));
+            view5.setBackgroundColor(Color.parseColor("#FFFFFF"));
+            view6.setBackgroundResource(R.drawable.linear_style);
         }
 
         AppManager.getAppManager().addActivity(this);
@@ -166,8 +179,21 @@ public class MainActivity extends AppCompatActivity {
                 mMainTvDate.setTextSize(TypedValue.COMPLEX_UNIT_SP,14);
                 mMContentainTv.setTextSize(TypedValue.COMPLEX_UNIT_SP,16);
         }
+        boolean themeType = (boolean) SP.getBoolean("btheme", Boolean.parseBoolean("false"));
+
+
         mMainTvDate.setText("Today " + GetDate.getDate());
         mCommonTvTitle.setText(strUserName+"\'s "+"Diary");
+        if (themeType) {
+
+            mMainTvDate.setTextColor(Color.parseColor("#d3d3d3"));
+            mMContentainTv.setTextColor(Color.parseColor("#FFFFFF"));
+        }
+        else {
+            mMainTvDate.setTextColor(Color.parseColor("#808080"));
+            mMContentainTv.setTextColor(Color.parseColor("#223344"));
+
+        }
         mCommonIvBack.setVisibility(View.INVISIBLE);
         mCommonIvTest.setVisibility(View.INVISIBLE);
 

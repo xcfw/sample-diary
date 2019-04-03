@@ -10,10 +10,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.*;
 
 import com.example.losya.watermelondiarynew.R;
 import com.example.losya.watermelondiarynew.db.DiaryDatabaseHelper;
@@ -77,6 +74,21 @@ public class UpdateDiaryActivity extends AppCompatActivity {
         StatusBarCompat.compat(this, Color.parseColor("#161414"));
         SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         String downloadType = SP.getString("downloadType","1");
+        boolean themeType = (boolean) SP.getBoolean("btheme", Boolean.parseBoolean("false"));
+        RelativeLayout view = (RelativeLayout) findViewById(R.id.main_rl_main);
+        LinearLayout view3 = (LinearLayout) findViewById(R.id.numberPadLayout);
+        if (themeType) {
+          view.setBackgroundColor(Color.parseColor("#223344"));
+            mUpdateDiaryTvDate.setTextColor(Color.parseColor("#d3d3d3"));
+            view3.setBackgroundColor(Color.parseColor("#223344"));
+//
+        }
+        else {
+            mUpdateDiaryTvDate.setTextColor(Color.parseColor("#808080"));
+       view.setBackgroundColor(Color.parseColor("#FFFFFF"));
+            view3.setBackgroundColor(Color.parseColor("#FFFFFF"));
+//
+        }
         switch (downloadType) {
             case "1":
                 mCommonTvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);

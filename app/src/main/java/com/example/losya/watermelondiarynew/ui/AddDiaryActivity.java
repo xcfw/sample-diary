@@ -11,10 +11,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.*;
 
 import com.example.losya.watermelondiarynew.R;
 import com.example.losya.watermelondiarynew.db.DiaryDatabaseHelper;
@@ -80,6 +77,21 @@ public class AddDiaryActivity extends AppCompatActivity {
         Intent intent = getIntent();
         SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         String downloadType = SP.getString("downloadType","1");
+        boolean themeType = (boolean) SP.getBoolean("btheme", Boolean.parseBoolean("false"));
+        RelativeLayout view = (RelativeLayout) findViewById(R.id.main_rl_main);
+        LinearLayout view3 = (LinearLayout) findViewById(R.id.numberPadLayout);
+        if (themeType) {
+            view.setBackgroundColor(Color.parseColor("#223344"));
+            mAddDiaryTvDate.setTextColor(Color.parseColor("#d3d3d3"));
+            view3.setBackgroundColor(Color.parseColor("#223344"));
+//
+        }
+        else {
+            mAddDiaryTvDate.setTextColor(Color.parseColor("#808080"));
+            view.setBackgroundColor(Color.parseColor("#FFFFFF"));
+            view3.setBackgroundColor(Color.parseColor("#FFFFFF"));
+//
+        }
         switch (downloadType) {
             case "1":
                 mCommonTvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);

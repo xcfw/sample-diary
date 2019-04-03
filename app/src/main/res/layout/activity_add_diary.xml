@@ -11,6 +11,7 @@
         />
 
     <RelativeLayout
+            android:id="@+id/main_rl_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="20dp"
@@ -19,6 +20,7 @@
 
         >
         <LinearLayout
+                android:id="@+id/numberPadLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -31,6 +33,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:paddingRight="5dp"
+                android:paddingBottom="10dp"
                 android:text="testdate"
                 android:textSize="15sp"
                 android:bottom="25dp"

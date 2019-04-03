@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_com" default="compile.module.com">
+  <dirname property="module.com.basedir" file="${ant.file.module_com}"/>
+  
+  <property name="module.jdk.home.com" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.com" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.com" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.com" value="-encoding UTF-8 -source 7 -target 7 ${compiler.args}"/>
+  
+  <property name="com.output.dir" value="${module.com.basedir}/../../../../../out/production/com"/>
+  <property name="com.testoutput.dir" value="${module.com.basedir}/../../../../../out/test/com"/>
+  
+  <path id="com.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="com.module.production.classpath">
+    <path refid="${module.jdk.classpath.com}"/>
+  </path>
+  
+  <path id="com.runtime.production.module.classpath">
+    <pathelement location="${com.output.dir}"/>
+  </path>
+  
+  <path id="com.module.classpath">
+    <path refid="${module.jdk.classpath.com}"/>
+    <pathelement location="${com.output.dir}"/>
+  </path>
+  
+  <path id="com.runtime.module.classpath">
+    <pathelement location="${com.testoutput.dir}"/>
+    <pathelement location="${com.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.com">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.com">
+    <patternset refid="excluded.from.module.com"/>
+  </patternset>
+  
+  
+  <target name="compile.module.com" depends="compile.module.com.production,compile.module.com.tests" description="Compile module com"/>
+  
+  <target name="compile.module.com.production" depends="register.custom.compilers" description="Compile module com; production classes"/>
+  
+  <target name="compile.module.com.tests" depends="register.custom.compilers,compile.module.com.production" description="compile module com; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.com" description="cleanup module">
+    <delete dir="${com.output.dir}"/>
+    <delete dir="${com.testoutput.dir}"/>
+  </target>
+</project>

@@ -77,7 +77,8 @@
                 >
 
                 <LinearLayout
-                    android:layout_width="23dp"
+                        android:id="@+id/itemLine"
+                        android:layout_width="23dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/linear_style"
                     >

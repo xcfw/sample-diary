@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_app" default="compile.module.app">
+  <dirname property="module.app.basedir" file="${ant.file.module_app}"/>
+  
+  <property name="module.jdk.home.app" value="${jdk.home.android_api_28_platform}"/>
+  <property name="module.jdk.bin.app" value="${jdk.bin.android_api_28_platform}"/>
+  <property name="module.jdk.classpath.app" value="jdk.classpath.android_api_28_platform"/>
+  
+  <property name="compiler.args.app" value="-encoding UTF-8 -source 7 -target 7 ${compiler.args}"/>
+  
+  <property name="app.output.dir" value="${module.app.basedir}/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes"/>
+  <property name="app.testoutput.dir" value="${module.app.basedir}/build/intermediates/javac/debugUnitTest/compileDebugUnitTestJavaWithJavac/classes"/>
+  
+  <path id="app.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="app.module.production.classpath">
+    <path refid="${module.jdk.classpath.app}"/>
+    <path refid="library.gradle:_com.android.support:localbroadcastmanager-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-vector-drawable-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:interpolator-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.squareup.leakcanary:leakcanary-watcher:1.5.1@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-core-utils-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.jakewharton:butterknife:7.0.1@jar.classpath"/>
+    <path refid="library.gradle:_com.squareup.haha:haha:2.0.3@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:cardview-v7-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:drawerlayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:coordinatorlayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.squareup.leakcanary:leakcanary-android-1.5.1.classpath"/>
+    <path refid="library.gradle:_com.google.code.gson:gson:2.8.0@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:swiperefreshlayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:livedata-1.1.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:versionedparcelable-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.core:runtime-1.1.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:loader-28.0.0.classpath"/>
+    <path refid="library.gradle:_org.greenrobot:eventbus:3.0.0@jar.classpath"/>
+    <path refid="library.gradle:_com.getbase:floatingactionbutton-1.5.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:viewpager-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-annotations:28.0.0@jar.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:runtime-1.1.1.classpath"/>
+    <path refid="library.gradle:_com.github.clans:fab-1.6.4.classpath"/>
+    <path refid="library.gradle:_com.android.support:customview-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-core-ui-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:slidingpanelayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:viewmodel-1.1.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:collections:28.0.0@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:documentfile-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:preference-v7-25.0.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:recyclerview-v7-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:design-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:cursoradapter-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:asynclayoutinflater-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.core:common:1.1.1@jar.classpath"/>
+    <path refid="library.gradle:_com.orhanobut:logger-1.15.classpath"/>
+    <path refid="library.gradle:_com.android.support:print-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.squareup.leakcanary:leakcanary-analyzer:1.5.1@jar.classpath"/>
+    <path refid="library.gradle:_io.github.yavski:fab-speed-dial-1.0.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:transition-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-fragment-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:common:1.1.1@jar.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:livedata-core-1.1.1.classpath"/>
+    <path refid="library.gradle:_cc.trity.floatingactionbutton:library-1.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-compat-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:animated-vector-drawable-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:appcompat-v7-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.oguzdev:circularfloatingactionmenu-1.0.2.classpath"/>
+  </path>
+  
+  <path id="app.runtime.production.module.classpath">
+    <pathelement location="${app.output.dir}"/>
+    <path refid="library.gradle:_com.android.support:localbroadcastmanager-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-vector-drawable-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:interpolator-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.squareup.leakcanary:leakcanary-watcher:1.5.1@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-core-utils-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.jakewharton:butterknife:7.0.1@jar.classpath"/>
+    <path refid="library.gradle:_com.squareup.haha:haha:2.0.3@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:cardview-v7-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:drawerlayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:coordinatorlayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.squareup.leakcanary:leakcanary-android-1.5.1.classpath"/>
+    <path refid="library.gradle:_com.google.code.gson:gson:2.8.0@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:swiperefreshlayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:livedata-1.1.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:versionedparcelable-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.core:runtime-1.1.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:loader-28.0.0.classpath"/>
+    <path refid="library.gradle:_org.greenrobot:eventbus:3.0.0@jar.classpath"/>
+    <path refid="library.gradle:_com.getbase:floatingactionbutton-1.5.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:viewpager-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-annotations:28.0.0@jar.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:runtime-1.1.1.classpath"/>
+    <path refid="library.gradle:_com.github.clans:fab-1.6.4.classpath"/>
+    <path refid="library.gradle:_com.android.support:customview-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-core-ui-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:slidingpanelayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:viewmodel-1.1.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:collections:28.0.0@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:documentfile-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:preference-v7-25.0.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:recyclerview-v7-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:design-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:cursoradapter-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:asynclayoutinflater-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.core:common:1.1.1@jar.classpath"/>
+    <path refid="library.gradle:_com.orhanobut:logger-1.15.classpath"/>
+    <path refid="library.gradle:_com.android.support:print-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.squareup.leakcanary:leakcanary-analyzer:1.5.1@jar.classpath"/>
+    <path refid="library.gradle:_io.github.yavski:fab-speed-dial-1.0.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:transition-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-fragment-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:common:1.1.1@jar.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:livedata-core-1.1.1.classpath"/>
+    <path refid="library.gradle:_cc.trity.floatingactionbutton:library-1.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-compat-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:animated-vector-drawable-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:appcompat-v7-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.oguzdev:circularfloatingactionmenu-1.0.2.classpath"/>
+  </path>
+  
+  <path id="app.module.classpath">
+    <path refid="${module.jdk.classpath.app}"/>
+    <pathelement location="${app.output.dir}"/>
+    <path refid="library.gradle:_com.android.support:localbroadcastmanager-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-vector-drawable-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:interpolator-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.squareup.leakcanary:leakcanary-watcher:1.5.1@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-core-utils-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.jakewharton:butterknife:7.0.1@jar.classpath"/>
+    <path refid="library.gradle:_com.squareup.haha:haha:2.0.3@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:cardview-v7-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:drawerlayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:coordinatorlayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.squareup.leakcanary:leakcanary-android-1.5.1.classpath"/>
+    <path refid="library.gradle:_com.google.code.gson:gson:2.8.0@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:swiperefreshlayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:livedata-1.1.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:versionedparcelable-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.core:runtime-1.1.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:loader-28.0.0.classpath"/>
+    <path refid="library.gradle:_org.greenrobot:eventbus:3.0.0@jar.classpath"/>
+    <path refid="library.gradle:_com.getbase:floatingactionbutton-1.5.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:viewpager-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-annotations:28.0.0@jar.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:runtime-1.1.1.classpath"/>
+    <path refid="library.gradle:_com.github.clans:fab-1.6.4.classpath"/>
+    <path refid="library.gradle:_com.android.support:customview-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-core-ui-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:slidingpanelayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:viewmodel-1.1.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:collections:28.0.0@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:documentfile-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:preference-v7-25.0.1.classpath"/>
+    <path refid="library.gradle:_com.squareup.leakcanary:leakcanary-android-no-op-1.5.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:recyclerview-v7-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:design-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:cursoradapter-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:asynclayoutinflater-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.core:common:1.1.1@jar.classpath"/>
+    <path refid="library.gradle:_com.orhanobut:logger-1.15.classpath"/>
+    <path refid="library.gradle:_junit:junit:4.12@jar.classpath"/>
+    <path refid="library.gradle:_org.hamcrest:hamcrest-core:1.3@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:print-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.squareup.leakcanary:leakcanary-analyzer:1.5.1@jar.classpath"/>
+    <path refid="library.gradle:_io.github.yavski:fab-speed-dial-1.0.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:transition-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-fragment-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:common:1.1.1@jar.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:livedata-core-1.1.1.classpath"/>
+    <path refid="library.gradle:_cc.trity.floatingactionbutton:library-1.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-compat-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:animated-vector-drawable-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:appcompat-v7-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.oguzdev:circularfloatingactionmenu-1.0.2.classpath"/>
+  </path>
+  
+  <path id="app.runtime.module.classpath">
+    <pathelement location="${app.testoutput.dir}"/>
+    <pathelement location="${app.output.dir}"/>
+    <path refid="library.gradle:_com.android.support:localbroadcastmanager-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-vector-drawable-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:interpolator-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.squareup.leakcanary:leakcanary-watcher:1.5.1@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-core-utils-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.jakewharton:butterknife:7.0.1@jar.classpath"/>
+    <path refid="library.gradle:_com.squareup.haha:haha:2.0.3@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:cardview-v7-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:drawerlayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:coordinatorlayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.squareup.leakcanary:leakcanary-android-1.5.1.classpath"/>
+    <path refid="library.gradle:_com.google.code.gson:gson:2.8.0@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:swiperefreshlayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:livedata-1.1.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:versionedparcelable-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.core:runtime-1.1.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:loader-28.0.0.classpath"/>
+    <path refid="library.gradle:_org.greenrobot:eventbus:3.0.0@jar.classpath"/>
+    <path refid="library.gradle:_com.getbase:floatingactionbutton-1.5.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:viewpager-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-annotations:28.0.0@jar.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:runtime-1.1.1.classpath"/>
+    <path refid="library.gradle:_com.github.clans:fab-1.6.4.classpath"/>
+    <path refid="library.gradle:_com.android.support:customview-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-core-ui-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:slidingpanelayout-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:viewmodel-1.1.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:collections:28.0.0@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:documentfile-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:preference-v7-25.0.1.classpath"/>
+    <path refid="library.gradle:_com.squareup.leakcanary:leakcanary-android-no-op-1.5.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:recyclerview-v7-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:design-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:cursoradapter-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:asynclayoutinflater-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.core:common:1.1.1@jar.classpath"/>
+    <path refid="library.gradle:_com.orhanobut:logger-1.15.classpath"/>
+    <path refid="library.gradle:_junit:junit:4.12@jar.classpath"/>
+    <path refid="library.gradle:_org.hamcrest:hamcrest-core:1.3@jar.classpath"/>
+    <path refid="library.gradle:_com.android.support:print-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.squareup.leakcanary:leakcanary-analyzer:1.5.1@jar.classpath"/>
+    <path refid="library.gradle:_io.github.yavski:fab-speed-dial-1.0.1.classpath"/>
+    <path refid="library.gradle:_com.android.support:transition-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-fragment-28.0.0.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:common:1.1.1@jar.classpath"/>
+    <path refid="library.gradle:_android.arch.lifecycle:livedata-core-1.1.1.classpath"/>
+    <path refid="library.gradle:_cc.trity.floatingactionbutton:library-1.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:support-compat-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:animated-vector-drawable-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.android.support:appcompat-v7-28.0.0.classpath"/>
+    <path refid="library.gradle:_com.oguzdev:circularfloatingactionmenu-1.0.2.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.app">
+    <patternset refid="ignored.files"/>
+    <exclude name="com/**"/>
+    <exclude name="com/example/**"/>
+    <exclude name="com/example/losya/**"/>
+    <exclude name="com/example/losya/watermelondiarynew/**"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.app">
+    <patternset refid="excluded.from.module.app"/>
+  </patternset>
+  
+  <path id="app.module.sourcepath">
+    <dirset dir="${module.app.basedir}">
+      <include name="build/generated/source/apt/debug"/>
+      <include name="build/generated/source/buildConfig/debug"/>
+      <include name="build/generated/renderscript_source_output_dir/debug/compileDebugRenderscript/out"/>
+      <include name="build/generated/res/rs/debug"/>
+      <include name="build/generated/res/resValues/debug"/>
+    </dirset>
+  </path>
+  
+  <path id="app.module.test.sourcepath">
+    <dirset dir="${module.app.basedir}">
+      <include name="build/generated/source/apt/androidTest/debug"/>
+      <include name="build/generated/source/buildConfig/androidTest/debug"/>
+      <include name="build/generated/renderscript_source_output_dir/debugAndroidTest/compileDebugAndroidTestRenderscript/out"/>
+      <include name="build/generated/res/rs/androidTest/debug"/>
+      <include name="build/generated/res/resValues/androidTest/debug"/>
+      <include name="src/androidTest/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.app" depends="compile.module.app.production,compile.module.app.tests" description="Compile module app"/>
+  
+  <target name="compile.module.app.production" depends="register.custom.compilers" description="Compile module app; production classes">
+    <mkdir dir="${app.output.dir}"/>
+    <javac2 destdir="${app.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.app}/javac">
+      <compilerarg line="${compiler.args.app}"/>
+      <bootclasspath refid="app.module.bootclasspath"/>
+      <classpath refid="app.module.production.classpath"/>
+      <src refid="app.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.app"/>
+    </javac2>
+    
+    <copy todir="${app.output.dir}">
+      <fileset dir="${module.app.basedir}/build/generated/source/apt/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.app.basedir}/build/generated/source/buildConfig/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.app.basedir}/build/generated/renderscript_source_output_dir/debug/compileDebugRenderscript/out">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.app.basedir}/build/generated/res/rs/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.app.basedir}/build/generated/res/resValues/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.app.tests" depends="register.custom.compilers,compile.module.app.production" description="compile module app; test classes" unless="skip.tests">
+    <mkdir dir="${app.testoutput.dir}"/>
+    <javac2 destdir="${app.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.app}/javac">
+      <compilerarg line="${compiler.args.app}"/>
+      <bootclasspath refid="app.module.bootclasspath"/>
+      <classpath refid="app.module.classpath"/>
+      <src refid="app.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.app"/>
+    </javac2>
+    
+    <copy todir="${app.testoutput.dir}">
+      <fileset dir="${module.app.basedir}/build/generated/source/apt/androidTest/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.app.basedir}/build/generated/source/buildConfig/androidTest/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.app.basedir}/build/generated/renderscript_source_output_dir/debugAndroidTest/compileDebugAndroidTestRenderscript/out">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.app.basedir}/build/generated/res/rs/androidTest/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.app.basedir}/build/generated/res/resValues/androidTest/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.app.basedir}/src/androidTest/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.app" description="cleanup module">
+    <delete dir="${app.output.dir}"/>
+    <delete dir="${app.testoutput.dir}"/>
+  </target>
+</project>
